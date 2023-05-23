@@ -1,11 +1,11 @@
 --- 
-title: "Kungfu Pandas"
+title: "Sổ ghi chép"
 author: "Lê Huỳnh Đức"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
-description: "Kungfu Panda"
+description: "Notes"
 ---
 
 # Lời nói đầu {-}

@@ -1,4 +1,0 @@
-# Các cách phối hợp nhiều bảng với nhau 
-## Join
-## Merge
-## Concat

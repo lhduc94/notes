@@ -6,7 +6,7 @@ bookdown::gitbook:
       collapse: subsection
       scroll_highlight: yes
       before: |
-        <li><a href="./">Kungfu Pandas</a></li>
+        <li><a href="./">Notes</a></li>
       after: |
         <li><a href="" target="blank">Lê Huỳnh Đức</a></li>
     edit: null
