@@ -1,0 +1,5 @@
+# Làm việc với 1 số kiểu dữ liệu 
+## Xử  lý dữ liệu dạng text 
+## Xử lý dữ liệu dạng timestamp 
+## Category trong pandas
+## Xử lý Missing data

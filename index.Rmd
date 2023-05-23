@@ -1,0 +1,13 @@
+--- 
+title: "Kungfu Pandas"
+author: "Lê Huỳnh Đức"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+description: "Kungfu Panda"
+---
+
+# Lời nói đầu {-}
+## Giới thiệu cuốn sách {-}
+## Giới thiệu tác giả {-}

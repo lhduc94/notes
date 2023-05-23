@@ -1,0 +1,420 @@
+# Tính toán trên các phần tử trong Pandas 
+
+
+```python
+df = pd.read_csv('data/big_mart_sales.csv')
+```
+## Sử dụng Vectorization
+
+Giả sử như muốn tạo cột `price`= `Item_Outlet_Sales` * `5%`
+```python
+In []: df['price'] = df['Item_Outlet_Sales'] * 0.05
+In []: df[['Item_Outlet_Sales', 'price']]
+Out[]:
+      Item_Outlet_Sales      price
+0             3735.1380  186.75690
+1              443.4228   22.17114
+2             2097.2700  104.86350
+3              732.3800   36.61900
+4              994.7052   49.73526
+...                 ...        ...
+8518          2778.3834  138.91917
+8519           549.2850   27.46425
+8520          1193.1136   59.65568
+8521          1845.5976   92.27988
+8522           765.6700   38.28350
+```
+Nối hai cột lại với nhau, Ví dụ 
+
+- nối `Item_type` và `Item_Fat_Content` thành `Item_Type_Fat_Content`
+
+- nối `Outlet_Identifier` và `Outlet_Establishment_Year` thành `Outlet_Identifier_Establishment_Year`. Trong trường hợp hợp này `Outlet_Establishment_Year` thuộc dạng số nên để nối dạng text và số ta ép kiểu dạng số về text sử dụng `astype()`
+
+```python
+df['Item_Type_Fat_Content'] = df['Item_Type'] + '_' + df['Item_Fat_Content']
+df['Outlet_Identifier_Establishment_Year'] = df['Outlet_Identifier'] + '_' +df['Outlet_Establishment_Year'].astype('str')
+df[['Item_Type_Fat_Content', 'Outlet_Identifier_Establishment_Year']]
+```
+
+```python
+              Item_Type_Fat_Content Outlet_Identifier_Establishment_Year
+0                     Dairy_Low Fat                          OUT049_1999
+1               Soft Drinks_Regular                          OUT018_2009
+2                      Meat_Low Fat                          OUT049_1999
+3     Fruits and Vegetables_Regular                          OUT010_1998
+4                 Household_Low Fat                          OUT013_1987
+...                             ...                                  ...
+8518            Snack Foods_Low Fat                          OUT013_1987
+8519           Baking Goods_Regular                          OUT045_2002
+8520     Health and Hygiene_Low Fat                          OUT035_2004
+8521            Snack Foods_Regular                          OUT018_2009
+8522            Soft Drinks_Low Fat                          OUT046_1997
+```
+## Sử dụng apply
+
+Phương thức `apply` để thực thi một hàm theo dòng hoặc cột
+
+**Đối với Series**
+
+```python
+Series.apply(func, convert_dtype=True, args=(), **kwargs)
+```
+
+Trong đó:
+
+- `func`: là hàm cần thực thi
+
+- `convert_dtype`: Giá trị kiểu boolean. Nếu nó được đặt thành True (mặc định), xử lý dữ liệu sẽ cố gắng tìm dtype tốt hơn cho các kết quả của hàm `func`. Nếu `False`, thì dtype sẽ là type(object)
+
+- `args`: Các đối số của hàm 
+
+
+Ví dụ, thao tác `Item_Outlet_Sales` * `5%`
+
+Sử dụng lambda function
+
+```python
+In []: df['Item_Outlet_Sales'].apply(lambda x: x * 0.05)
+Out[]:
+0       186.75690
+1        22.17114
+2       104.86350
+3        36.61900
+4        49.73526
+          ...    
+8518    138.91917
+8519     27.46425
+8520     59.65568
+8521     92.27988
+8522     38.28350
+Name: Item_Outlet_Sales, Length: 8523, dtype: float64
+```
+Sử dụng hàm tự định nghĩa
+
+```python
+def set_price(x, k=0.05):
+    return x * k
+```
+```python
+In []: df['Item_Outlet_Sales'].apply(set_price)
+Out[]: 
+0       186.75690
+1        22.17114
+2       104.86350
+3        36.61900
+4        49.73526
+          ...    
+8518    138.91917
+8519     27.46425
+8520     59.65568
+8521     92.27988
+8522     38.28350
+Name: Item_Outlet_Sales, Length: 8523, dtype: float64
+```
+Có thể truyền tham số `k` vào hàm `set_price` bằng hai cách
+```python
+# Cách 1 - Dùng lambda
+In []: df['Item_Outlet_Sales'].apply(lambda x: set_price(x, 0.1))
+
+# Cách 2 - Dùng `arg`
+In []: df['Item_Outlet_Sales'].apply(set_price, k=0.1)
+```
+
+**Đối với `DataFrame`**
+
+Ta dùng cú pháp
+
+```python
+DataFrame.apply(func, axis=0, raw=False, result_type=None, args=(), **kwargs)
+```
+Trong đó:
+
+- `func`: là hàm cần thực thi
+
+- `axis`: thực thi theo dòng `0` hoặc cột `1`
+
+- `raw`: Xác định xem dòng hoặc cột có thể chuyển về `Series` hoặc `ndarray`
+
+- `result_type`: Chỉ áp dụng cho `axis=1` 
+
+- `args`: Các đối số của hàm 
+
+Ví dụ:
+
+```python
+In []: sample_df = sample_df = pd.DataFrame([[1, 2, 'A'], [3, 6, 'B'], [5, 10, 'C']], columns=['A', 'B', 'C'])
+In []: sample_df
+Out[]:
+   A   B  C
+0  1   2  A
+1  3   6  B
+2  5  10  C
+```
+Áp dụng trên toàn `DataFrame`
+
+```python
+In []: sample_df.apply(lambda x: x * 2)
+Out[]:
+     A	 B	 C
+0	 2	 4	AA
+1	 6	12	BB
+2	10	20	CC
+```
+```{block2, type='rmdnote'}
+**_Lưu ý:_** 
+
+Khi áp dụng cho toàn `DataFrame` hãy cẩn thận hàm `func` truyền vào, nếu `func` không áp dụng được cho toàn bộ các phần tử sẽ báo lỗi.
+
+Ví dụ ở trên với x * 2 vẫn áp dụng được cho cột `C` dạng `str`, nhưng khi thay bằng x ** 2 sẽ báo lỗi vì toán tử `**` không áp dụng cho `str` 
+```
+
+Áp dụng trên một số cột trong `DataFrame`
+``` Python
+## Theo cột
+In []: sample_df[['A', 'B']].apply(np.sum, axis=1)
+Out[]:
+0    13
+1    13
+2    13
+dtype: int64
+
+## Theo dòng
+
+In []: df[['A', 'B']].apply(lambda x: np.sum(x), axis=0)
+Out[]:
+A    12
+B    27
+dtype: int64
+```
+Một cách khác áp dụng trên một số cột trong `DataFrame`
+
+Sử dụng lambda
+```python
+In []: sample_df.apply(lambda x: x['A'] + 2 * x['B'], axis=1)
+Out[]: 
+0     5
+1    15
+2    25
+dtype: int64
+```
+Dùng hàm định nghĩa
+```python 
+def dsum(row):
+    return row['A'] + 2 * row['B']
+```
+```python
+In []: sample_df.apply(dsum, axis=1)
+Out[]: 
+0     5
+1    15
+2    25
+dtype: int64
+```
+```{block2, type='rmdtip'}
+**_Mẹo:_**
+
+- Không nhất thiết giá trị trả về của hàm là giá trị đơn, giá trị trả về có thể dưới dạng list, tuple hoặc dict
+
+- Dùng `result_type` để thay đổi cách trả về
+```
+
+Ví dụ ta có 1 hàm trả về nhiều giá trị cùng lúc như sau
+
+```python
+def dsum_2(row):
+    return [row['A'] + 2 * row['B'],  row['A'] - 2 * row['B']]
+```
+
+```python
+## Khi không sử dụng `result_type`
+In []: sample_df.apply(dsum_2, axis=1)
+Out[]: 
+0      [5, -3]
+1     [15, -9]
+2    [25, -15]
+dtype: object
+```
+Kết quả trả về của phương pháp trên là `Series` với các giá trị của nó là dạng list. Để chuyển `Series` này thành `DataFrame` với các cột chứa các giá trị của list theo thứ tự, ta dùng `result_type='expand'`
+
+```python
+In []: sample_df.apply(dsum_2, axis=1, result_type='expand')
+    0   1
+0   5  -3
+1  15  -9
+2  25 -15
+```
+
+```{block2, type='rmdtip'}
+**_Mẹo:_** Có thể cấu trúc trả về dưới dạng `DataFrame` cho ví dụ trên mà không cần dùng `result_type` bằng cách sử dụng `pd.Series` của một `dictionary`. Lúc này các cột của `DataFrame` sẽ được đánh nhãn theo key của `dictionary`
+```
+
+```python
+def dsum_3(row):
+    return pd.Series({'X': row['A'] + 2 * row['B'],  'Y':row['A'] - 2 * row['B']})
+```
+
+```python
+In []: sample_df.apply(dsum_3, axis=1)
+Out[]:
+	X	Y
+0	5	-3
+1	15	-9
+2	25	-15
+```
+## Sử dụng iterator
+```python
+df = pd.read_csv('data/big_mart_sales.csv', usecols=['Item_Identifier', 'Item_Fat_Content', 'Item_Type', 'Outlet_Size', 'Item_Outlet_Sales', 'Outlet_Establishment_Year'])
+```
+### Iterrows
+```python
+DataFrame.iterrows()
+```
+```python
+In []: row = next(df.iterrows())
+Out[]: row
+(0,
+ Item_Identifier                 FDA15
+ Item_Fat_Content              Low Fat
+ Item_Type                       Dairy
+ Outlet_Establishment_Year        1999
+ Outlet_Size                    Medium
+ Item_Outlet_Sales            3735.138
+ Name: 0, dtype: object)
+```
+Kết quả trả về cho row là 1 tuple gồm index và Series chứa các giá trị tại index đó. 
+
+**Cách dùng vòng lặp trong iterrows**
+
+Để duyệt từng dòng ta dùng `for` như bình thường
+
+```python
+prices = []
+for i, row in df.iterrows():
+    prices.append(row['Item_Outlet_Sales'] * 0.5)
+print(prices[:5])
+```
+```python
+[1867.569, 221.7114, 1048.635, 366.19, 497.3526]
+```
+
+### Itertuple
+
+```python
+DataFrame.itertuples(index=True, name='Pandas')
+```
+
+Trong đó:
+
+- `index`: `True` trả về kết quả kèm theo index và `False` lược bỏ index
+
+- `name`: Quy định kiểu trả về
+    - `Pandas`: trả về namedtuple
+    - `None`: trả về tuple
+    - `namedtuple`: trả về namedtuple
+
+Trả về `namedtuple`   
+```python
+In []: next(df.itertuples(index=True))
+Out[]:
+Pandas(Index=0, Item_Identifier='FDA15', Item_Fat_Content='Low Fat', Item_Type='Dairy', Outlet_Establishment_Year=1999, Outlet_Size='Medium', Item_Outlet_Sales=3735.138)
+```
+
+Trả về `tuple`
+```python
+In []: next(df.itertuples(index=False, name=None))
+Out[]:
+('FDA15', 'Low Fat', 'Dairy', 1999, 'Medium', 3735.138)
+```
+
+**Cách dùng vòng lặp trong itertuples**
+
+`name=default`
+```python
+prices = []
+for row in df.itertuples():
+    prices.append(row.Item_Outlet_Sales * 0.5)
+print(prices[:5])
+```
+
+`name=None`
+
+```python
+prices = []
+for row in df.itertuples(index=False, name=None):
+    prices.append(row[5] * 0.5)
+print(prices[:5])
+```
+## So sánh các phương pháp lặp
+
+```python
+
+def vectorizer(df):
+    prices = df['Item_Outlet_Sales'] * 0.5
+
+def applyer(df):
+    prices = df['Item_Outlet_Sales'].apply(lambda x: x * 0.5)
+
+def iterrows(df):
+    prices = []
+    for i, row in df.iterrows():
+        prices.append(row['Item_Outlet_Sales'] * 0.5)
+
+def itertuples1(df):
+    prices = []
+    for row in df.itertuples():
+        prices.append(row.Item_Outlet_Sales * 0.5)
+
+def itertuples2(df):
+    prices = []
+    for row in df.itertuples(index=False, name=None):
+        prices.append(row[5] * 0.5)
+```
+
+```python
+In []: %timeit -n 10 vectorizer(df)
+Out[]:
+80.1 µs ± 42.8 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+
+In[ ]: %timeit -n 10 applyer(df)
+Out[]:
+1.37 ms ± 112 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+
+In []: %timeit -n 10 iterrows(df)
+Out[]:
+256 ms ± 2.48 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+
+In []: %timeit -n 10 itertuples1(df)
+Out[]: 
+6.61 ms ± 200 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+
+In []: %timeit -n 10 itertuples2(df)
+Out[]:
+3.91 ms ± 132 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+```
+## Xử lý song song trong pandas
+
+Xử lý song song là phương pháp tận dụng số lượng core của CPU để giải quyết vấn đề trong thời gian ngắn hơn.
+
+
+### pandarallel
+Để cài đặt pandarallel bằng `pip`
+```python
+pip install pandarallel
+```
+Cách sử dụng
+```python
+from pandarallel import pandarallel
+pandarallel.initialize(progress_bar=True, n_workers=4)
+```
+Để thiết lập cho pandarallel ta dùng `.initialize`. Trong đó:
+
+- `n_workers`: là số lượng cores của CPU
+
+- `progress_bar`: show tiến trình
+
+Để áp dụng pandarallel ta chỉ việc thay thế `.apply` bằng `.parallel_apply`
+
+```python
+# df.apply(func)
+df.parallel_apply(func)
+```

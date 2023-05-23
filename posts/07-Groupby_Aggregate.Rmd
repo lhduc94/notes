@@ -1,0 +1,469 @@
+# Groupby
+
+## Groupby
+Phương thức `.groupby` sẽ gom các dòng hoặc các cột thành các nhóm khác nhau. Cú pháp cơ bản của `.groupby` như sau
+```python
+DataFrame.groupby(by=None, axis=0, dropna=True)
+```
+Trong đó
+
+- `by`: có thể là dạng mapping, nhãn, danh sách nhãn hoặc một hàm trả về danh sách các index
+
+- `axis`: Tùy chọn group theo dòng {`0` hoặc `index`} hoặc cột {`1` hoặc `columns`}, mặc định là dòng.
+
+- `dropna`: Mặc định là `True` sẽ bỏ qua những dòng chứa `NA` và `False` sẽ thêm `NA` là một khóa trong nhóm, tương tự như `.value_counts()`
+
+Ví dụ với dữ liệu [Big Mart Salses](https://www.kaggle.com/datasets/brijbhushannanda1979/bigmart-sales-data?select=Train.csv)
+
+```python
+In [1]: df.head()
+Out[1]:
+  Item_Identifier              Item_Type Outlet_Size  Item_Outlet_Sales
+0           FDA15                  Dairy      Medium          3735.1380
+1           DRC01            Soft Drinks      Medium           443.4228
+2           FDN15                   Meat      Medium          2097.2700
+3           FDX07  Fruits and Vegetables         NaN           732.3800
+4           NCD19              Household        High           994.7052
+```
+
+```python
+In [2]: grouped = df.groupby('Item_Type')
+In [3]: type(grouped)
+Out[3]:
+pandas.core.groupby.generic.DataFrameGroupBy
+```
+Để xem từng nhóm trong group, ta có thể sử dụng `.get_groups()` và truyền key vào đó. Ví dụ với key `Dairy`
+
+```python
+In [4]: grouped.get_group('Dairy').head()
+Out[4]:
+   Item_Identifier Item_Type Outlet_Size  Item_Outlet_Sales
+0            FDA15     Dairy      Medium          3735.1380
+11           FDA03     Dairy       Small          2187.1530
+19           FDU02     Dairy       Small          2748.4224
+28           FDE51     Dairy         NaN           178.4344
+30           FDV38     Dairy         NaN           163.7868
+```
+
+Khi chọn 1 column sau khi `.groupby` sẽ trả về kiểu `pandas.core.groupby.generic.SeriesGroupBy`
+
+## Các hàm Filtering trong Groupby
+
+**`.head(n=5)`**
+
+Trả về `n` dòng đầu của mỗi group. 
+
+```python
+In [4]: df.groupby(['Item_Type']).head(n=2)
+Out[4]:
+    Item_Identifier              Item_Type Outlet_Size  Item_Outlet_Sales
+0             FDA15                  Dairy      Medium          3735.1380
+1             DRC01            Soft Drinks      Medium           443.4228
+2             FDN15                   Meat      Medium          2097.2700
+3             FDX07  Fruits and Vegetables         NaN           732.3800
+4             NCD19              Household        High           994.7052
+5             FDP36           Baking Goods      Medium           556.6088
+6             FDO10            Snack Foods        High           343.5528
+7             FDP10            Snack Foods      Medium          4022.7636
+8             FDH17           Frozen Foods         NaN          1076.5986
+9             FDU28           Frozen Foods         NaN          4710.5350
+10            FDY07  Fruits and Vegetables      Medium          1516.0266
+11            FDA03                  Dairy       Small          2187.1530
+15            FDP49              Breakfast       Small          1547.3192
+16            NCB42     Health and Hygiene      Medium          1621.8888
+17            FDP49              Breakfast      Medium           718.3982
+18            DRI11            Hard Drinks      Medium          2303.6680
+21            FDW12           Baking Goods      Medium          4064.0432
+22            NCB30              Household       Small          1587.2672
+27            DRJ59            Hard Drinks        High           308.9312
+29            FDC14                 Canned       Small           125.8362
+31            NCS17     Health and Hygiene      Medium          2741.7644
+33            FDO23                 Breads         NaN          2174.5028
+34            DRH01            Soft Drinks       Small          2085.2856
+41            FDK43                   Meat        High          2150.5340
+43            FDC02                 Canned      Medium          6768.5228
+72            FDH35          Starchy Foods         NaN          4604.6728
+114           FDV11                 Breads         NaN          3151.8972
+136           FDH35          Starchy Foods      Medium          5262.4832
+139           NCN07                 Others         NaN           263.6568
+142           NCO55                 Others         NaN          2143.8760
+231           FDG33                Seafood      Medium          3435.5280
+713           FDH21                Seafood      Medium          1267.6832
+```
+**`.tail(n=5)`**
+
+Trả về `n` dòng cuối của mỗi group
+
+```python
+In [5]: df.groupby(['Item_Type']).tail(n=2)
+Out[5]:
+     Item_Identifier              Item_Type Outlet_Size  Item_Outlet_Sales
+8317           FDN13              Breakfast         NaN          1306.9654
+8335           FDO49              Breakfast      Medium           708.4112
+8370           FDV23                 Breads       Small           871.5322
+8413           FDW59                 Breads       Small          1691.1320
+8423           FDJ57                Seafood      Medium          2600.6148
+8426           FDA22          Starchy Foods       Small          4512.1266
+8457           FDY50                  Dairy       Small          1516.6924
+8463           FDG59          Starchy Foods      Medium           810.9444
+8473           DRI47            Hard Drinks         NaN           431.4384
+8483           DRI11            Hard Drinks         NaN          1612.5676
+8488           NCN14                 Others      Medium          2756.4120
+8489           FDV13                 Canned      Medium          2109.2544
+8491           FDO03                   Meat      Medium          4809.7392
+8496           FDJ57                Seafood         NaN          3715.1640
+8499           NCK53     Health and Hygiene       Small          2976.1260
+8502           NCH43              Household         NaN          3020.0688
+8504           NCN18              Household      Medium          4138.6128
+8506           DRF37            Soft Drinks      Medium          3944.8650
+8508           FDW31  Fruits and Vegetables         NaN          2587.9646
+8509           FDG45  Fruits and Vegetables         NaN           424.7804
+8511           FDF05           Frozen Foods      Medium          4207.8560
+8512           FDR26                  Dairy        High          2479.4392
+8513           FDH31                   Meat       Small           595.2252
+8514           FDA01                 Canned         NaN           468.7232
+8515           FDH24           Baking Goods      Medium          1571.2880
+8516           NCJ19                 Others      Medium           858.8820
+8517           FDF53           Frozen Foods       Small          3608.6360
+8518           FDF22            Snack Foods        High          2778.3834
+8519           FDS36           Baking Goods         NaN           549.2850
+8520           NCJ29     Health and Hygiene       Small          1193.1136
+8521           FDN46            Snack Foods      Medium          1845.5976
+8522           DRG01            Soft Drinks       Small           765.6700
+```
+
+```{block2, type='rmdnote'}
+**_Lưu ý:_** 
+`.head()` và `.tail()` trả về các dòng theo thứ tự index của chúng, không trả về theo thứ tự sắp xếp theo key
+``` 
+
+## Aggregate trong Groupby
+
+**`.count()`**
+
+Đếm số lượng phần tử cho từng cột trong từng nhóm, không đếm các phần tử NA
+```python
+In [6]: df.groupby(['Item_Type']).count() 
+Out[6]:
+                       Item_Identifier  Outlet_Size  Item_Outlet_Sales
+Item_Type                                                             
+Baking Goods                       648          463                648
+Breads                             251          179                251
+Breakfast                          110           79                110
+Canned                             649          471                649
+Dairy                              682          496                682
+Frozen Foods                       856          615                856
+Fruits and Vegetables             1232          883               1232
+Hard Drinks                        214          148                214
+Health and Hygiene                 520          367                520
+Household                          910          649                910
+Meat                               425          309                425
+Others                             169          123                169
+Seafood                             64           46                 64
+Snack Foods                       1200          868               1200
+Soft Drinks                        445          312                445
+Starchy Foods                      148          105                148
+```
+
+**`.size()`**
+
+Đếm số lượng dòng cho từng nhóm
+
+```python
+In [7]: df.groupby(['Item_Type']).size()
+Out[7]:
+Item_Type
+Baking Goods              648
+Breads                    251
+Breakfast                 110
+Canned                    649
+Dairy                     682
+Frozen Foods              856
+Fruits and Vegetables    1232
+Hard Drinks               214
+Health and Hygiene        520
+Household                 910
+Meat                      425
+Others                    169
+Seafood                    64
+Snack Foods              1200
+Soft Drinks               445
+Starchy Foods             148
+dtype: int64
+```
+**`SeriesGroupBy.nlargest(n=5)`** 
+
+Trả về `n` dòng lớn nhất của từng nhóm Series
+```python
+In []: df.groupby(['Item_Type'])['Item_Outlet_Sales'].nlargest(n=2)
+Out[]:
+Item_Type                  
+Baking Goods           2776     7931.6754
+                       809      7759.8990
+Breads                 3757     8958.3390
+                       7737     7158.6816
+Breakfast              7343     8209.3140
+                       7690     7943.6598
+Canned                 6541    10306.5840
+                       6886     8217.3036
+Dairy                  4888    10256.6490
+                       1009    10236.6750
+Frozen Foods           7752     9678.0688
+                       997      9275.9256
+Fruits and Vegetables  5223    12117.5600
+                       1450    11445.1020
+Hard Drinks            3087     7843.1240
+                       1043     7152.0236
+Health and Hygiene     4289     9779.9362
+                       4991     8508.9240
+Household              7188    13086.9648
+                       7191    10072.8882
+Meat                   8201     9390.4432
+                       7930     9227.9880
+Others                 197      6008.8450
+                       3529     5546.1140
+Seafood                2528     6503.5344
+                       5042     5992.2000
+Snack Foods            4349    10993.6896
+                       333      9267.9360
+Soft Drinks            6606     9554.2300
+                       5619     8868.4560
+Starchy Foods          1254     8132.0812
+                       661      7443.6440
+Name: Item_Outlet_Sales, dtype: float64
+```
+
+**`SeriesGroupBy.nsmallest(n=5)`**
+
+Trả về `n` dòng nhỏ nhất của từng nhóm Series
+
+```python
+In []: df.groupby(['Item_Type'])['Item_Outlet_Sales'].nsmallest(n=2)
+Out[]: 
+Item_Type                  
+Baking Goods           2055     37.2848
+                       430      38.6164
+Breads                 7388     35.2874
+                       417      83.8908
+Breakfast              4350     39.9480
+                       920      50.6008
+Canned                 5670     37.9506
+                       4297     41.9454
+Dairy                  3940     40.6138
+                       5427     44.6086
+Frozen Foods           4265     36.6190
+                       7612     36.6190
+Fruits and Vegetables  8486     45.2744
+                       540      56.5930
+Hard Drinks            574      37.9506
+                       8116     71.9064
+Health and Hygiene     3053     34.6216
+                       4280     37.9506
+Household              6950     33.2900
+                       7861     41.2796
+Meat                   5374     47.9376
+                       2407     71.9064
+Others                 6139     39.9480
+                       2394     55.2614
+Seafood                6903    149.8050
+                       4502    158.4604
+Snack Foods            2571     33.9558
+                       6871     42.6112
+Soft Drinks            906      33.2900
+                       1913     40.6138
+Starchy Foods          828      58.5904
+                       5445     97.2068
+Name: Item_Outlet_Sales, dtype: float64
+```
+
+
+**aggregate**
+```python
+.aggregate(func=None, *args, engine=None, engine_kwargs=None)
+```
+Trong đó:
+
+- `func`:
+  - một hàm hoặc danh sách hàm
+
+  - hàm dạng string
+
+  - dictionary chứa nhãn và hàm cho từng nhãn
+
+- `*args`: Đối số truyền vào hàm `func`
+
+- `engine`: Engine tính toán có thể là `cython`, `numba`
+
+Danh sách hàm
+
+```python
+In []: df.groupby('Item_Type').agg(['min','max'])
+Out[]:
+                      Item_Identifier        Item_Outlet_Sales            
+                                  min    max               min         max
+Item_Type                                                                 
+Baking Goods                    FDA11  FDZ60           37.2848   7931.6754
+Breads                          FDN23  FDZ35           35.2874   8958.3390
+Breakfast                       FDK25  FDR37           39.9480   8209.3140
+Canned                          FDA01  FDZ49           37.9506  10306.5840
+Dairy                           DRC27  FDZ50           40.6138  10256.6490
+Frozen Foods                    FDA04  FDZ52           36.6190   9678.0688
+Fruits and Vegetables           FDA07  FDZ56           45.2744  12117.5600
+Hard Drinks                     DRF23  DRQ35           37.9506   7843.1240
+Health and Hygiene              NCA05  NCZ53           34.6216   9779.9362
+Household                       NCA06  NCZ54           33.2900  13086.9648
+Meat                            FDA39  FDZ51           47.9376   9390.4432
+Others                          NCI31  NCQ43           39.9480   6008.8450
+Seafood                         FDF33  FDK45          149.8050   6503.5344
+Snack Foods                     FDA09  FDZ58           33.9558  10993.6896
+Soft Drinks                     DRA12  DRZ24           33.2900   9554.2300
+Starchy Foods                   FDA22  FDZ34           58.5904   8132.0812
+```
+```{block2, type='rmdnote'}
+**_Lưu ý:_** 
+
+`min`, `max` không áp dụng được cho các cột có NaN value. Lúc này pandas sẽ báo Warning `FutureWarning: ['Outlet_Size'] did not aggregate successfully.`
+``` 
+
+Dictionary chứa nhãn và hàm
+
+```python
+In []: df.groupby('Item_Type').agg({'Item_Identifier': np.max, 'Item_Outlet_Sales': [np.std, np.mean]})
+Out[]:
+                      Item_Identifier Item_Outlet_Sales             
+                                 amax               std         mean
+Item_Type                                                           
+Baking Goods                    FDZ60       1546.788045  1952.971207
+Breads                          FDZ35       1644.235914  2204.132226
+Breakfast                       FDR37       1911.693586  2111.808651
+Canned                          FDZ49       1645.235638  2225.194904
+Dairy                           FDZ50       1884.404698  2232.542597
+Frozen Foods                    FDZ52       1724.777720  2132.867744
+Fruits and Vegetables           FDZ56       1799.503459  2289.009592
+Hard Drinks                     DRQ35       1606.191587  2139.221622
+Health and Hygiene              NCZ53       1553.633063  2010.000265
+Household                       NCZ54       1692.245757  2258.784300
+Meat                            FDZ51       1695.231081  2158.977911
+Others                          NCQ43       1431.860471  1926.139702
+Seafood                         FDK45       1842.988719  2326.065928
+Snack Foods                     FDZ58       1705.121755  2277.321739
+Soft Drinks                     DRZ24       1674.249752  2006.511735
+Starchy Foods                   FDZ34       1773.945328  2374.332773
+```
+
+**Sử dụng hàm tự định nghĩa trong Aggregate**
+
+Ta có 2 function sau
+
+```python
+def foo(item_outlet_sales, alpha=1):
+    mean = np.mean(item_outlet_sales)
+    return np.sum(item_outlet_sales[item_outlet_sales < alpha * mean])
+
+def bar(item_identifier):
+    return len(set(item_identifier))
+```
+
+```python
+In []: df.groupby('Item_Type').agg({'Item_Identifier': [np.max, bar], 'Item_Outlet_Sales': [np.mean, foo]})
+Out[]:
+                      Item_Identifier      Item_Outlet_Sales             
+                                 amax  bar              mean          foo
+Item_Type                                                                
+Baking Goods                    FDZ60  119       1952.971207  348230.7108
+Breads                          FDZ35   45       2204.132226  152370.9932
+Breakfast                       FDR37   20       2111.808651   64478.7352
+Canned                          FDZ49  120       2225.194904  414387.2620
+Dairy                           FDZ50  125       2232.542597  440485.2904
+Frozen Foods                    FDZ52  155       2132.867744  514843.8318
+Fruits and Vegetables           FDZ56  220       2289.009592  783023.4112
+Hard Drinks                     DRQ35   40       2139.221622  126412.1170
+Health and Hygiene              NCZ53   95       2010.000265  272449.3548
+Household                       NCZ54  170       2258.784300  538634.1974
+Meat                            FDZ51   80       2158.977911  263468.3786
+Others                          NCQ43   30       1926.139702   81071.1370
+Seafood                         FDK45   10       2326.065928   31677.4324
+Snack Foods                     FDZ58  220       2277.321739  762663.2472
+Soft Drinks                     DRZ24   80       2006.511735  257134.6232
+Starchy Foods                   FDZ34   30       2374.332773   94087.5270
+```
+bạn có thể truyền vào tham số alpha bằng cách dùng lambda
+
+```python
+In []: df.groupby('Item_Type').agg({'Item_Outlet_Sales': [np.mean, lambda x: foo(x, alpha=0.1)]})
+Out[]: 
+                      Item_Outlet_Sales            
+                                   mean  <lambda_0>
+Item_Type                                          
+Baking Goods                1952.971207   5035.4454
+Breads                      2204.132226   1557.3062
+Breakfast                   2111.808651   1440.7912
+Canned                      2225.194904   5354.3636
+Dairy                       2232.542597   5992.8658
+Frozen Foods                2132.867744   7111.4098
+Fruits and Vegetables       2289.009592  12268.0308
+Hard Drinks                 2139.221622   1625.2178
+Health and Hygiene          2010.000265   3723.8194
+Household                   2258.784300   8425.0332
+Meat                        2158.977911   4526.1084
+Others                      1926.139702   1445.4518
+Seafood                     2326.065928   1404.1722
+Snack Foods                 2277.321739   9573.5382
+Soft Drinks                 2006.511735   3207.1586
+Starchy Foods               2374.332773   1151.1682
+```
+
+**Apply trên nhiều cột và sử dụng function tự định nghĩa**
+
+Giả sử muốn lấy top_2 item có số lượng Outlet_Sales cao nhất và cao nhì trong từng nhóm. Ta định nghĩa function sau
+```python
+def get_top_ex1(g):
+    top_1, top_2 = sorted(list(zip(g['Item_Identifier'], g['Item_Outlet_Sales'])), key=lambda x: -x[1])[:2]
+    return pd.Series({'top_1_Item_Identifier': top_1[0],
+                      'top_1_Item_Outlet_Sales': top_1[1], 
+                      'top_2_Item_Identifier': top_2[0],
+                      'top_2_Item_Outlet_Sales': top_2[1]})
+```
+Trong đó g là DataFrame của từng nhóm chia theo key của `groupby`
+
+```python
+In []: df.groupby('Item_Type').apply(get_top_ex1)
+Out[]:
+                      top_1_Item_Identifier  top_1_Item_Outlet_Sales  \
+Item_Type                                                              
+Baking Goods                          FDB37                7931.6754   
+Breads                                FDR35                8958.3390   
+Breakfast                             FDR37                8209.3140   
+Canned                                FDI50               10306.5840   
+Dairy                                 FDF39               10256.6490   
+Frozen Foods                          FDC17                9678.0688   
+Fruits and Vegetables                 FDQ19               12117.5600   
+Hard Drinks                           DRK23                7843.1240   
+Health and Hygiene                    NCM05                9779.9362   
+Household                             NCE42               13086.9648   
+Meat                                  FDO03                9390.4432   
+Others                                NCN55                6008.8450   
+Seafood                               FDI57                6503.5344   
+Snack Foods                           FDP33               10993.6896   
+Soft Drinks                           DRF36                9554.2300   
+Starchy Foods                         FDG47                8132.0812   
+
+                      top_2_Item_Identifier  top_2_Item_Outlet_Sales  
+Item_Type                                                             
+Baking Goods                          FDL24                7759.8990  
+Breads                                FDS11                7158.6816  
+Breakfast                             FDQ37                7943.6598  
+Canned                                FDX13                8217.3036  
+Dairy                                 FDU14               10236.6750  
+Frozen Foods                          FDK28                9275.9256  
+Fruits and Vegetables                 FDZ20               11445.1020  
+Hard Drinks                           DRF23                7152.0236  
+Health and Hygiene                    NCQ53                8508.9240  
+Household                             NCH18               10072.8882  
+Meat                                  FDP15                9227.9880  
+Others                                NCM43                5546.1140  
+Seafood                               FDI09                5992.2000  
+Snack Foods                           FDN58                9267.9360  
+Soft Drinks                           DRE48                8868.4560  
+Starchy Foods                         FDA34                7443.6440  
+```
