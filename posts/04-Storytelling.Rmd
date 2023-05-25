@@ -1,3 +1,8 @@
 # Data Storytelling cho dự án Data Science
 
-![image](../images/05/05x01.png)
+![meomeo](../images/04/04x01.png)
+
+
+
+
+## Sự khác biệt giữa Data Visualization và Data Storytelling
