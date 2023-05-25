@@ -1,2 +1,14 @@
 feature-engineering
 time-series-analysis
+anormaly-detection
+data-storytelling-cho-dự-án-data-science
+tại-sao-lại-cần-data-storytelling-data-visualization-vẫn-chưa-đủ
+điểm-mạnh-của-data-storytelling-so-với-data-visualization
+các-vấn-đề-liên-quan-đến-dữ-liệu
+xử-lý-dữ-liệu-mất-cân-bằng
+cách-1-sử-dụng-class-weights
+cách-2-sử-dụng-phương-pháp-downsample-lớp-negative
+cách-3-xử-lý-kết-quả-dự-đoán
+cách-4-sử-dụng-hàm-loss-cân-bằng
+deployment
+tích-hợp-chatgpt-vào-gapo

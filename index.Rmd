@@ -9,5 +9,3 @@ description: "Notes"
 ---
 
 # Lời nói đầu {-}
-## Giới thiệu cuốn sách {-}
-## Giới thiệu tác giả {-}
