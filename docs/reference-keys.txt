@@ -20,3 +20,5 @@ mlops-là-gì
 các-frameworks-triển-khai-mlops
 giới-thiệu-mllfow
 giới-thiệu-metaflow
+các-đầu-sách
+abc
