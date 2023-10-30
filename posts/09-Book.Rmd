@@ -1,8 +1,0 @@
-# Các đầu sách
-
-## ABC
-[Flexible Imputation of Missing Data](https://stefvanbuuren.name/fimd)
-
-[Feature Engineering and Selection: A Practical Approach for Predictive Models](http://www.feat.engineering/)
-
-[Causal Inference: What If](https://www.hsph.harvard.edu/miguel-hernan/wp-content/uploads/sites/1268/2023/10/hernanrobins_WhatIf_30sep23.pdf)

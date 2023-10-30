@@ -20,5 +20,9 @@ mlops-là-gì
 các-frameworks-triển-khai-mlops
 giới-thiệu-mllfow
 giới-thiệu-metaflow
+phân-tích-đồ-thị
+đồ-thị-là-gì
+bài-toán-phân-tích-location
 các-đầu-sách
 abc
+time-aware-transformer-based-network-for-clinical-notes
