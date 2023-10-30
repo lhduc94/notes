@@ -22,6 +22,7 @@ giới-thiệu-mllfow
 giới-thiệu-metaflow
 phân-tích-đồ-thị
 đồ-thị-là-gì
+thư-viện-folium
 bài-toán-phân-tích-location
 các-đầu-sách
 abc

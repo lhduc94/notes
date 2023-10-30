@@ -180,7 +180,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9" data-path="phân-tích-đồ-thị.html"><a href="phân-tích-đồ-thị.html"><i class="fa fa-check"></i><b>9</b> Phân tích đồ thị</a>
 <ul>
 <li class="chapter" data-level="9.1" data-path="phân-tích-đồ-thị.html"><a href="phân-tích-đồ-thị.html#đồ-thị-là-gì"><i class="fa fa-check"></i><b>9.1</b> Đồ thị là gì</a></li>
-<li class="chapter" data-level="9.2" data-path="phân-tích-đồ-thị.html"><a href="phân-tích-đồ-thị.html#bài-toán-phân-tích-location"><i class="fa fa-check"></i><b>9.2</b> Bài toán phân tích location</a></li>
+<li class="chapter" data-level="9.2" data-path="phân-tích-đồ-thị.html"><a href="phân-tích-đồ-thị.html#thư-viện-folium"><i class="fa fa-check"></i><b>9.2</b> Thư viện folium</a></li>
+<li class="chapter" data-level="9.3" data-path="phân-tích-đồ-thị.html"><a href="phân-tích-đồ-thị.html#bài-toán-phân-tích-location"><i class="fa fa-check"></i><b>9.3</b> Bài toán phân tích location</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="các-đầu-sách.html"><a href="các-đầu-sách.html"><i class="fa fa-check"></i><b>10</b> Các đầu sách</a>
 <ul>
@@ -214,8 +215,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="đồ-thị-là-gì" class="section level2 hasAnchor" number="9.1">
 <h2><span class="header-section-number">9.1</span> Đồ thị là gì<a href="phân-tích-đồ-thị.html#đồ-thị-là-gì" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="bài-toán-phân-tích-location" class="section level2 hasAnchor" number="9.2">
-<h2><span class="header-section-number">9.2</span> Bài toán phân tích location<a href="phân-tích-đồ-thị.html#bài-toán-phân-tích-location" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="thư-viện-folium" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> Thư viện folium<a href="phân-tích-đồ-thị.html#thư-viện-folium" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="phân-tích-đồ-thị.html#cb4-1" tabindex="-1"></a><span class="im">import</span> folium</span>
+<span id="cb4-2"><a href="phân-tích-đồ-thị.html#cb4-2" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="phân-tích-đồ-thị.html#cb4-3" tabindex="-1"></a>vietnam_map <span class="op">=</span> folium.Map(location<span class="op">=</span>[<span class="fl">14.0583</span>, <span class="fl">108.2772</span>], zoom_start<span class="op">=</span><span class="dv">6</span>)</span>
+<span id="cb4-4"><a href="phân-tích-đồ-thị.html#cb4-4" tabindex="-1"></a><span class="cf">for</span> _ , row <span class="kw">in</span> locations.iterrows():</span>
+<span id="cb4-5"><a href="phân-tích-đồ-thị.html#cb4-5" tabindex="-1"></a>    folium.CircleMarker(</span>
+<span id="cb4-6"><a href="phân-tích-đồ-thị.html#cb4-6" tabindex="-1"></a>        location<span class="op">=</span>[row[<span class="st">&quot;LAT_&quot;</span>], row[<span class="st">&quot;LONG_&quot;</span>]],</span>
+<span id="cb4-7"><a href="phân-tích-đồ-thị.html#cb4-7" tabindex="-1"></a>        radius<span class="op">=</span><span class="dv">10</span>,</span>
+<span id="cb4-8"><a href="phân-tích-đồ-thị.html#cb4-8" tabindex="-1"></a>        color<span class="op">=</span>row[<span class="st">&#39;Color&#39;</span>],</span>
+<span id="cb4-9"><a href="phân-tích-đồ-thị.html#cb4-9" tabindex="-1"></a>        fill<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb4-10"><a href="phân-tích-đồ-thị.html#cb4-10" tabindex="-1"></a>        fill_opacity<span class="op">=</span><span class="fl">0.6</span></span>
+<span id="cb4-11"><a href="phân-tích-đồ-thị.html#cb4-11" tabindex="-1"></a>    ).add_to(vietnam_map)</span>
+<span id="cb4-12"><a href="phân-tích-đồ-thị.html#cb4-12" tabindex="-1"></a>    folium.<span class="bu">map</span>.Marker(</span>
+<span id="cb4-13"><a href="phân-tích-đồ-thị.html#cb4-13" tabindex="-1"></a>        [row[<span class="st">&quot;LAT_&quot;</span>], row[<span class="st">&quot;LONG_&quot;</span>]],</span>
+<span id="cb4-14"><a href="phân-tích-đồ-thị.html#cb4-14" tabindex="-1"></a>        icon<span class="op">=</span>folium.DivIcon(</span>
+<span id="cb4-15"><a href="phân-tích-đồ-thị.html#cb4-15" tabindex="-1"></a>            icon_size<span class="op">=</span>(<span class="dv">60</span>, <span class="dv">20</span>),</span>
+<span id="cb4-16"><a href="phân-tích-đồ-thị.html#cb4-16" tabindex="-1"></a>            html<span class="op">=</span><span class="ss">f&quot;&lt;div  style=&#39;font-size: 50px; color:red&#39;&gt;</span><span class="sc">{</span>row[<span class="st">&#39;DIEM_MAT_BANG&#39;</span>]<span class="sc">}</span><span class="ss">&lt;/div&gt;&quot;</span>,</span>
+<span id="cb4-17"><a href="phân-tích-đồ-thị.html#cb4-17" tabindex="-1"></a>        ),</span>
+<span id="cb4-18"><a href="phân-tích-đồ-thị.html#cb4-18" tabindex="-1"></a>        popup<span class="op">=</span><span class="ss">f&quot;&quot;&quot;&lt;div style=&#39;width: 200px;&#39;&gt;SHOP_WID: </span><span class="sc">{</span><span class="bu">int</span>(row[<span class="st">&quot;SHOP_WID&quot;</span>])<span class="sc">}</span></span>
+<span id="cb4-19"><a href="phân-tích-đồ-thị.html#cb4-19" tabindex="-1"></a><span class="ss">                    &lt;br&gt;Số lượng hợp đồng giải ngân: </span><span class="sc">{</span><span class="bu">int</span>(row[<span class="st">&quot;SLHD_GN&quot;</span>])<span class="sc">}</span></span>
+<span id="cb4-20"><a href="phân-tích-đồ-thị.html#cb4-20" tabindex="-1"></a><span class="ss">                    &lt;br&gt;Ngày thống kê: </span><span class="sc">{</span>row[<span class="st">&#39;MONTH_&#39;</span>]<span class="sc">}</span></span>
+<span id="cb4-21"><a href="phân-tích-đồ-thị.html#cb4-21" tabindex="-1"></a><span class="ss">                    &lt;br&gt;Close_date:</span><span class="sc">{</span>row[<span class="st">&#39;CLOSE_DT&#39;</span>]<span class="sc">}</span></span>
+<span id="cb4-22"><a href="phân-tích-đồ-thị.html#cb4-22" tabindex="-1"></a><span class="ss">                  &lt;/div&gt;</span></span>
+<span id="cb4-23"><a href="phân-tích-đồ-thị.html#cb4-23" tabindex="-1"></a><span class="ss">                  &quot;&quot;&quot;</span>,</span>
+<span id="cb4-24"><a href="phân-tích-đồ-thị.html#cb4-24" tabindex="-1"></a></span>
+<span id="cb4-25"><a href="phân-tích-đồ-thị.html#cb4-25" tabindex="-1"></a>    ).add_to(vietnam_map)</span>
+<span id="cb4-26"><a href="phân-tích-đồ-thị.html#cb4-26" tabindex="-1"></a>marker1_coords <span class="op">=</span> (<span class="fl">21.02684</span>, <span class="fl">105.833870</span>)</span>
+<span id="cb4-27"><a href="phân-tích-đồ-thị.html#cb4-27" tabindex="-1"></a>marker2_coords <span class="op">=</span> (<span class="fl">21.034494</span>, <span class="fl">105.831664</span>)</span>
+<span id="cb4-28"><a href="phân-tích-đồ-thị.html#cb4-28" tabindex="-1"></a>marker3_coords <span class="op">=</span> (<span class="fl">21.018974</span>, <span class="fl">105.838349</span>)</span>
+<span id="cb4-29"><a href="phân-tích-đồ-thị.html#cb4-29" tabindex="-1"></a>marker4_coords <span class="op">=</span> (<span class="fl">21.021274</span>, <span class="fl">105.825743</span>)</span>
+<span id="cb4-30"><a href="phân-tích-đồ-thị.html#cb4-30" tabindex="-1"></a>folium.PolyLine([marker1_coords, marker2_coords], color<span class="op">=</span><span class="st">&quot;green&quot;</span>, </span>
+<span id="cb4-31"><a href="phân-tích-đồ-thị.html#cb4-31" tabindex="-1"></a>                popup<span class="op">=</span><span class="ss">f&quot;Khoảng cách: </span><span class="sc">{</span><span class="bu">int</span>(geodesic(marker1_coords, marker2_coords).meters)<span class="sc">}</span><span class="ss">&quot;</span>).add_to(vietnam_map)</span>
+<span id="cb4-32"><a href="phân-tích-đồ-thị.html#cb4-32" tabindex="-1"></a>folium.PolyLine([marker1_coords, marker3_coords], color<span class="op">=</span><span class="st">&quot;green&quot;</span>, popup<span class="op">=</span><span class="ss">f&quot;Khoảng cách: </span><span class="sc">{</span><span class="bu">int</span>(geodesic(marker1_coords, marker3_coords).meters)<span class="sc">}</span><span class="ss">&quot;</span>).add_to(vietnam_map)</span>
+<span id="cb4-33"><a href="phân-tích-đồ-thị.html#cb4-33" tabindex="-1"></a>folium.PolyLine([marker1_coords, marker4_coords], color<span class="op">=</span><span class="st">&quot;green&quot;</span>, popup<span class="op">=</span><span class="ss">f&quot;Khoảng cách: </span><span class="sc">{</span><span class="bu">int</span>(geodesic(marker1_coords, marker4_coords).meters)<span class="sc">}</span><span class="ss">&quot;</span>).add_to(vietnam_map)</span>
+<span id="cb4-34"><a href="phân-tích-đồ-thị.html#cb4-34" tabindex="-1"></a></span>
+<span id="cb4-35"><a href="phân-tích-đồ-thị.html#cb4-35" tabindex="-1"></a><span class="co"># Display the map</span></span>
+<span id="cb4-36"><a href="phân-tích-đồ-thị.html#cb4-36" tabindex="-1"></a><span class="co"># vietnam_map</span></span>
+<span id="cb4-37"><a href="phân-tích-đồ-thị.html#cb4-37" tabindex="-1"></a>vietnam_map.save(<span class="st">&quot;../outputs/map.html&quot;</span>)</span></code></pre></div>
+</div>
+<div id="bài-toán-phân-tích-location" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> Bài toán phân tích location<a href="phân-tích-đồ-thị.html#bài-toán-phân-tích-location" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
 </div>
