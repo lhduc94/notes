@@ -1,21 +1,30 @@
-# Các đầu sách
+# Các đầu sách và Paper 
 
-## ABC
-[Flexible Imputation of Missing Data](https://stefvanbuuren.name/fimd)
+## Các đầu sách
 
-[Feature Engineering and Selection: A Practical Approach for Predictive Models](http://www.feat.engineering/)
+### Feature Engineering and Selection: A Practical Approach for Predictive Models
+[link](http://www.feat.engineering/)
 
-[Causal Inference: What If](https://www.hsph.harvard.edu/miguel-hernan/wp-content/uploads/sites/1268/2023/10/hernanrobins_WhatIf_30sep23.pdf)
+### Flexible Imputation of Missing Data
+[link](https://stefvanbuuren.name/fimd)
 
-[Dataset Shift in Machine Learning](https://direct.mit.edu/books/edited-volume/3841/Dataset-Shift-in-Machine-Learning)
+### Feature Engineering and Selection: A Practical Approach for Predictive Models
+[link](http://www.feat.engineering/)
 
-[Interpretable Machine Learning](https://christophm.github.io/interpretable-ml-book/)
+### Causal Inference: What If
+[link](https://www.hsph.harvard.edu/miguel-hernan/wp-content/uploads/sites/1268/2023/10/hernanrobins_WhatIf_30sep23.pdf)
 
-[Causal Inference and Discovery in 
-Python – Machine Learning and 
-Pearlian Perspective](https://library.lol/main/0AAC1ECA747484D63A16CF6BD8A6DB20)
+### Dataset Shift in Machine Learning
+[link](https://direct.mit.edu/books/edited-volume/3841/Dataset-Shift-in-Machine-Learning)
 
-## Paper
+### Interpretable Machine Learning
+[link](https://christophm.github.io/interpretable-ml-book/)
+
+
+### Causal Inference and Discovery in Python – Machine Learning and Pearlian Perspective
+[link](https://library.lol/main/0AAC1ECA747484D63A16CF6BD8A6DB20)
+
+## Các link bài báo
 
 ### Time-Aware Transformer-based Network for Clinical Notes
  [[paper](https://proceedings.mlr.press/v126/zhang20c/zhang20c.pdf)] - [[code](https://github.com/zdy93/FTL-Trans)]
