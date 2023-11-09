@@ -23,7 +23,7 @@
 <meta name="author" content="Lê Huỳnh Đức" />
 
 
-<meta name="date" content="2023-10-30" />
+<meta name="date" content="2023-11-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="phân-tích-đồ-thị.html"/>
-
+<link rel="next" href="tips.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -181,14 +181,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="9.1" data-path="phân-tích-đồ-thị.html"><a href="phân-tích-đồ-thị.html#đồ-thị-là-gì"><i class="fa fa-check"></i><b>9.1</b> Đồ thị là gì</a></li>
 <li class="chapter" data-level="9.2" data-path="phân-tích-đồ-thị.html"><a href="phân-tích-đồ-thị.html#thư-viện-folium"><i class="fa fa-check"></i><b>9.2</b> Thư viện folium</a></li>
-<li class="chapter" data-level="9.3" data-path="phân-tích-đồ-thị.html"><a href="phân-tích-đồ-thị.html#bài-toán-phân-tích-location"><i class="fa fa-check"></i><b>9.3</b> Bài toán phân tích location</a></li>
+<li class="chapter" data-level="9.3" data-path="phân-tích-đồ-thị.html"><a href="phân-tích-đồ-thị.html#bài-toán-phân-tích-location"><i class="fa fa-check"></i><b>9.3</b> Bài toán phân tích location</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="phân-tích-đồ-thị.html"><a href="phân-tích-đồ-thị.html#thuật-toán-point-in-polygon"><i class="fa fa-check"></i><b>9.3.1</b> Thuật toán Point-in-Polygon</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="các-đầu-sách.html"><a href="các-đầu-sách.html"><i class="fa fa-check"></i><b>10</b> Các đầu sách</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="các-đầu-sách.html"><a href="các-đầu-sách.html#abc"><i class="fa fa-check"></i><b>10.1</b> ABC</a>
+<li class="chapter" data-level="10.1" data-path="các-đầu-sách.html"><a href="các-đầu-sách.html#abc"><i class="fa fa-check"></i><b>10.1</b> ABC</a></li>
+<li class="chapter" data-level="10.2" data-path="các-đầu-sách.html"><a href="các-đầu-sách.html#paper"><i class="fa fa-check"></i><b>10.2</b> Paper</a>
 <ul>
-<li class="chapter" data-level="10.1.1" data-path="các-đầu-sách.html"><a href="các-đầu-sách.html#time-aware-transformer-based-network-for-clinical-notes"><i class="fa fa-check"></i><b>10.1.1</b> Time-Aware Transformer-based Network for Clinical Notes</a></li>
+<li class="chapter" data-level="10.2.1" data-path="các-đầu-sách.html"><a href="các-đầu-sách.html#time-aware-transformer-based-network-for-clinical-notes"><i class="fa fa-check"></i><b>10.2.1</b> Time-Aware Transformer-based Network for Clinical Notes</a></li>
+<li class="chapter" data-level="10.2.2" data-path="các-đầu-sách.html"><a href="các-đầu-sách.html#model-evaluation-model-selection-and-algorithm-selection-in-machine-learning"><i class="fa fa-check"></i><b>10.2.2</b> Model Evaluation, Model Selection, and Algorithm Selection in Machine Learning</a></li>
 </ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="tips.html"><a href="tips.html"><i class="fa fa-check"></i><b>11</b> TIPS</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="tips.html"><a href="tips.html#train-và-test"><i class="fa fa-check"></i><b>11.1</b> Train và Test</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="" target="blank">Lê Huỳnh Đức</a></li>
@@ -217,9 +226,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><a href="https://stefvanbuuren.name/fimd">Flexible Imputation of Missing Data</a></p>
 <p><a href="http://www.feat.engineering/">Feature Engineering and Selection: A Practical Approach for Predictive Models</a></p>
 <p><a href="https://www.hsph.harvard.edu/miguel-hernan/wp-content/uploads/sites/1268/2023/10/hernanrobins_WhatIf_30sep23.pdf">Causal Inference: What If</a></p>
-<div id="time-aware-transformer-based-network-for-clinical-notes" class="section level3 hasAnchor" number="10.1.1">
-<h3><span class="header-section-number">10.1.1</span> Time-Aware Transformer-based Network for Clinical Notes<a href="các-đầu-sách.html#time-aware-transformer-based-network-for-clinical-notes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>[<a href="https://proceedings.mlr.press/v126/zhang20c/zhang20c.pdf">paper</a>] - [<a href="https://github.com/zdy93/FTL-Trans">code</a>]</p>
+<p><a href="https://direct.mit.edu/books/edited-volume/3841/Dataset-Shift-in-Machine-Learning">Dataset Shift in Machine Learning</a></p>
+<p><a href="https://christophm.github.io/interpretable-ml-book/">Interpretable Machine Learning</a></p>
+<p><a href="https://library.lol/main/0AAC1ECA747484D63A16CF6BD8A6DB20">Causal Inference and Discovery in
+Python – Machine Learning and
+Pearlian Perspective</a></p>
+</div>
+<div id="paper" class="section level2 hasAnchor" number="10.2">
+<h2><span class="header-section-number">10.2</span> Paper<a href="các-đầu-sách.html#paper" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="time-aware-transformer-based-network-for-clinical-notes" class="section level3 hasAnchor" number="10.2.1">
+<h3><span class="header-section-number">10.2.1</span> Time-Aware Transformer-based Network for Clinical Notes<a href="các-đầu-sách.html#time-aware-transformer-based-network-for-clinical-notes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>[<a href="https://proceedings.mlr.press/v126/zhang20c/zhang20c.pdf">paper</a>] - [<a href="https://github.com/zdy93/FTL-Trans">code</a>]
+### Long-term Forecasting with TiDE: Time-series Dense Encoder
+[<a href="https://arxiv.org/pdf/2304.08424.pdf">paper</a>] - [<a href="https://github.com/google-research/google-research/tree/master/tide">code</a>]</p>
+</div>
+<div id="model-evaluation-model-selection-and-algorithm-selection-in-machine-learning" class="section level3 hasAnchor" number="10.2.2">
+<h3><span class="header-section-number">10.2.2</span> Model Evaluation, Model Selection, and Algorithm Selection in Machine Learning<a href="các-đầu-sách.html#model-evaluation-model-selection-and-algorithm-selection-in-machine-learning" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>[<a href="https://arxiv.org/pdf/1811.12808.pdf">paper</a>]</p>
 
 </div>
 </div>
@@ -229,8 +252,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="phân-tích-đồ-thị.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="phân-tích-đồ-thị.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tips.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

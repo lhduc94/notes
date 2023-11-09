@@ -24,6 +24,11 @@ phân-tích-đồ-thị
 đồ-thị-là-gì
 thư-viện-folium
 bài-toán-phân-tích-location
+thuật-toán-point-in-polygon
 các-đầu-sách
 abc
+paper
 time-aware-transformer-based-network-for-clinical-notes
+model-evaluation-model-selection-and-algorithm-selection-in-machine-learning
+tips
+train-và-test
