@@ -3,7 +3,6 @@ giới-thiệu
 feature-engineering-cơ-bản
 loại-dữ-liệu
 các-tài-liệu-tham-khảo
-feature-engineering-and-selection-a-practical-approach-for-predictive-models
 time-series-analysis
 anormaly-detection
 data-storytelling-cho-dự-án-data-science
@@ -32,9 +31,9 @@ bài-toán-phân-tích-location
 thuật-toán-point-in-polygon
 các-đầu-sách-và-paper
 các-đầu-sách
-feature-engineering-and-selection-a-practical-approach-for-predictive-models-1
+feature-engineering-and-selection-a-practical-approach-for-predictive-models
 flexible-imputation-of-missing-data
-feature-engineering-and-selection-a-practical-approach-for-predictive-models-2
+feature-engineering-and-selection-a-practical-approach-for-predictive-models-1
 causal-inference-what-if
 dataset-shift-in-machine-learning
 interpretable-machine-learning

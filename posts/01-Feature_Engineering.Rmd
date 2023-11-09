@@ -4,16 +4,25 @@ Feature Engineering là quá trình chuyển đổi tập dữ liệu thô ban �
 Feature Engineering giúp cải thiện hiệu suất của mô hình cũng như cải thiện độ chính xác của mô hình
 
 Các bước thực hiện Feature Engineering bao gồm:
+
 - **Feature Understanding**: Là bước hiểu các cột dữ liệu
+
 - **Feature Structuring**: Nếu dữ liệu là dữ liệu phi cấu trúc, chúng ta phải chuyển đổi nó về dữ liệu có cấu trúc hoặc dạng dữ liệu mà máy có thể hiểu được
+
 - **Feature Optimization**: Sau khi có dữ liệu đã được cấu trúc, bước này giúp tìm kiếm những feature hoặc chọn lọc những feature tối ưu
+
 - **Feature Evaluation**: Sau khi đã chọn được các Feature tối ưu, chúng ta đánh giá các lựa chọn bằng cách đánh giá mô hình dự đoán
 
 Các loại Feature Engineering:
+
 - **Feature Improvement**: Biến đối các feature có sẵn thành các feature dễ hiểu hơn bằng các phép biến đổi toán học
+
 - **Feature Construction**: Tạo thêm các feature dễ hiểu từ những feature dễ hiểu khác
+
 - **Feature Selection**: Lựa chọn những feature tốt nhất từ tập feature
+
 - **Feature Extraction**: Dựa vào thuật toán để tạo những feature mới, đôi khi những feature này không thể giải thích được
+
 - **Feature Learning**: Bằng các thuật toán hiện đại, sử dụng các phương pháp pretrained model để tạo tập feature mới từ tập feature đã cho
 
 ## Feature Engineering cơ bản
@@ -21,11 +30,11 @@ Các loại Feature Engineering:
 Thông thường, một tập dữ liệu có cả phần có cấu trúc và phi cấu  trúc. Ví dụ: Nếu chúng ta đang xử lý tập dữ liệu về các cuộc gọi điện thoại. Tập hợp con của dữ liệu này bao gồm ngà thực hiện của gọi, tên người thực cuộc gọi, địa điệm thực hiện cuộc gọi, người nhận cuộc gọi là dữ liệu có cấu trúc. Tập ghi âm thô của cuộc gọi sẽ là dữ liệu phi cấu trúc
 
 | Ví dụ |  Phần cấu trúc | Phần phi cấu trúc  |
-|-------|---|---|
+|---|----|----|
 |   Cuộc gọi  thoại    |  Người gọi, người nhận, thời gian gọi, địa điểm gọi, mục đích gọi | Bản ghi âm cuộc gọi  |
 |   Form bảo hiểm    | Ngày tháng, người điền thông tin, mục muốn bồi thường  |  Nội dung các câu hỏi |
-|    Job Description   | Tên công ty, vị trí cần tuyển, số năm kinh nghiệm yêu cầu  |  Nội dung từng phần
- |
+|    Job Description   | Tên công ty, vị trí cần tuyển, số năm kinh nghiệm yêu cầu  |  Nội dung từng phần |
+
+
 ## Các tài liệu tham khảo
-### Feature Engineering and Selection: A Practical Approach for Predictive Models
-[link](http://www.feat.engineering/)
+[Feature Engineering and Selection: A Practical Approach for Predictive Models](http://www.feat.engineering/)
