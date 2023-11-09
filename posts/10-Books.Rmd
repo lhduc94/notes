@@ -16,10 +16,14 @@ Python – Machine Learning and
 Pearlian Perspective](https://library.lol/main/0AAC1ECA747484D63A16CF6BD8A6DB20)
 
 ## Paper
+
 ### Time-Aware Transformer-based Network for Clinical Notes
  [[paper](https://proceedings.mlr.press/v126/zhang20c/zhang20c.pdf)] - [[code](https://github.com/zdy93/FTL-Trans)]
+
+
 ### Long-term Forecasting with TiDE: Time-series Dense Encoder
 [[paper](https://arxiv.org/pdf/2304.08424.pdf)] - [[code](https://github.com/google-research/google-research/tree/master/tide)]
+
 
 ### Model Evaluation, Model Selection, and Algorithm Selection in Machine Learning
 [[paper](https://arxiv.org/pdf/1811.12808.pdf)]
