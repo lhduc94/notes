@@ -6,6 +6,8 @@ dữ-liệu-có-cấu-trúc
 dữ-liệu-phi-cấu-trúc
 abc
 các-tài-liệu-tham-khảo
+một-số-thứ-xàm-xí-thu-nhặt-được
+dự-đoán-xấp-xỉ---approximate-predictions-giúp-feature-selection-nhanh-hơn
 time-series-analysis
 anormaly-detection
 data-storytelling-cho-dự-án-data-science
@@ -45,5 +47,6 @@ các-link-bài-báo
 time-aware-transformer-based-network-for-clinical-notes
 long-term-forecasting-with-tide-time-series-dense-encoder
 model-evaluation-model-selection-and-algorithm-selection-in-machine-learning
+cyclic-boosting---an-explainable-supervised-machine-learning-algorithm
 tips
 train-và-test

@@ -36,3 +36,7 @@
 
 ### Model Evaluation, Model Selection, and Algorithm Selection in Machine Learning
 [[paper](https://arxiv.org/pdf/1811.12808.pdf)]
+
+
+### Cyclic Boosting - an explainable supervised machine learning algorithm
+[[paper](https://arxiv.org/pdf/2002.03425.pdf)] - [[code](https://github.com/microsoft/CBM)] - [[code](https://cyclic-boosting.readthedocs.io/en/latest/)]

@@ -49,3 +49,16 @@ Thông thường, một tập dữ liệu có cả phần có cấu trúc và ph
 
 ## Các tài liệu tham khảo
 [Feature Engineering and Selection: A Practical Approach for Predictive Models](http://www.feat.engineering/)
+
+
+## Một số thứ xàm xí thu nhặt được
+### "Dự đoán xấp xỉ" - Approximate Predictions giúp Feature Selection nhanh hơn
+
+Nhắc lại về SHAP Value, SHAP value thể hiện gía trị đóng góp của mỗi feature cho từng quan sát
+https://towardsdatascience.com/approximate-predictions-make-feature-selection-radically-faster-0f9664877687
+
+thay vì chọn candidated features sau đó train lại, thì chọn candidated features sau đó dùng bảng SHAP để ước lượng giá trị dự đoán. Như thế sẽ giảm được thời gian đào tạo.
+Bài viết đã so sánh 2 cách:
+- **(A)** : Train lại trên tập candidated features, predict trên tập valid
+- **(B)** : Dựa trên bảng SHAP, tính toán luôn
+Sau đó so sánh correlation của 2 phương án A, B trên các tập dataset khác nhau. Kết quả giá trị tối thiểu của Rho là 0.87 và giá trị tối đa là 1
