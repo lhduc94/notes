@@ -40,3 +40,7 @@
 
 ### Cyclic Boosting - an explainable supervised machine learning algorithm
 [[paper](https://arxiv.org/pdf/2002.03425.pdf)] - [[code](https://github.com/microsoft/CBM)] - [[code](https://cyclic-boosting.readthedocs.io/en/latest/)]
+
+
+### TSMixer: An All-MLP Architecture for Time Series Forecasting
+[[paper](https://arxiv.org/pdf/2303.06053.pdf)] - [[code](https://github.com/google-research/google-research/tree/master/tsmixer/tsmixer_basic)] - [[example](https://towardsdatascience.com/tsmixer-the-latest-forecasting-model-by-google-2fd1e29a8ccb)]
