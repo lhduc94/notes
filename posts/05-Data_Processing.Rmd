@@ -40,6 +40,6 @@ trong đó preds là xác suất dự đoán giá trị `postitive=1`
 ### Cách 4: Sử dụng hàm loss cân bằng
 ví dụ
 
-$\begin{aligned}
+$\begin{align}
  \Large LogLoss = \frac{-\frac{1}{N_0}\sum_{i=1}^{n_0} y_{0i}logp_{0i} -\frac{1}{N_1}\sum_{i=1}^{n_1} y_{1i}logp_{1i}}{2}
-\end{aligned}$
+\end{align}$

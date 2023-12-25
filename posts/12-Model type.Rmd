@@ -1,4 +1,4 @@
-# TIPS
-Một số cạm bẫy
+# Model TYpe
 
-## Train và Test
+## Causal Inference
+## Survival Model 
