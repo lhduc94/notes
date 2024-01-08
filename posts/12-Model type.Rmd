@@ -1,7 +1,14 @@
+# Model Type
+
+## Causal Inference
+
+## Survivals Models 
+
+## DEA
 https://medium.com/analytics-vidhya/introduction-to-data-envelopment-analysis-in-r-773745549d6a
 
 
-## DEA Base Model
+### DEA Base Model
 
 Năm 1978, Charnes, Cooper and Rhodes đã đề xuất mô hình DEA, CCR model đầu tiên. Họ đã mở rộng mô hình từ một đầu vào, một đầu ra thành nhiều đầu vào và nhiều đầu ra. Mô hình CCR bây giờ đã trở thành một mô hình quen thuộc để đánh giá hiệu suất.
 Công thức của mô hình như sau
