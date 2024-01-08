@@ -6,3 +6,49 @@
 Năm 1978, Charnes, Cooper and Rhodes đã đề xuất mô hình DEA, CCR model đầu tiên. Họ đã mở rộng mô hình từ một đầu vào, một đầu ra thành nhiều đầu vào và nhiều đầu ra. Mô hình CCR bây giờ đã trở thành một mô hình quen thuộc để đánh giá hiệu suất.
 Công thức của mô hình như sau
 
+Maximize 
+
+$$
+\Large DMU(k)= max \frac{\sum_{r=1}^{q}{u_r y_{rk}}}{\sum^{m}_{i=1}{v_i x_{ik}}}
+$$
+
+Subject to
+
+$$
+\Large \frac{\sum^{q}_{r=1}{u_r y_{rj}}}{\sum^{m}_{i=1}{v_i x_{ij}}} \le 1 , \forall j
+$$
+
+$$
+v>0;u \ge 0;i=1,2,⋯,m ;r=1,2,⋯,q
+$$
+Với mỗi quyết định cho một đơn vị $k$ trong tập đơn vị $S$ sẽ có 
+
+- $m$ input được định nghĩa là $x_i(i=1, 2, 3, ..., m)$
+- với mỗi $x_i$ sẽ có trọng số là $v_i$
+- $q$ output được định nghĩa là $y_r(i=1, 2, 3, ..., q)$
+- với mỗi $y_r$ sẽ có trọng số là $u_r$
+- $j$ là đơn vị trong tập $S - \{k\}$
+
+
+Vì phương trình này là phi tuyến tính và có vô số nghiệm tối ưu. Trong thực tế, cần phải chuyển đổi đó thành Linear Programing
+
+**Primary Form**
+
+Objective 
+
+$$
+\Large DMU(k)= max {\sum_{r=1}^{q}{u_r y_{rk}}}
+$$
+
+Subject to
+
+$$
+\Large {\sum^{q}_{r=1}{u_r y_{rj}}} - {\sum^{m}_{i=1}{v_i x_{ij}}} \le 0 , \forall j \\
+
+{\sum^{m}_{i=1}{v_i x_{ik}}} = 1
+$$
+
+$$
+v>0;𝑢 \ge 0; i=1,2,⋯,m; r=1,2,⋯,q
+$$
+
