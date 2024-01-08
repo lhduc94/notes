@@ -1,12 +1,5 @@
 # Model Type
 
-## Causal Inference
-
-## Survivals Models 
-
-## DEA
-https://medium.com/analytics-vidhya/introduction-to-data-envelopment-analysis-in-r-773745549d6a
-
 
 ### DEA Base Model
 
