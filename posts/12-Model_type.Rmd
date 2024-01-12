@@ -32,7 +32,7 @@ $$
 $$
 
 $$
-v>0;u \ge 0;i=1,2,⋯,m ;r=1,2,⋯,q
+v>0;u \ge 0;i=1,2,⋯,m;r=1,2,⋯,q
 $$
 Với mỗi quyết định cho một đơn vị $k$ trong tập đơn vị $S$ sẽ có 
 
@@ -40,7 +40,7 @@ Với mỗi quyết định cho một đơn vị $k$ trong tập đơn vị
 - với mỗi $x_i$ sẽ có trọng số là $v_i$
 - $q$ output được định nghĩa là $y_r(i=1, 2, 3, ..., q)$
 - với mỗi $y_r$ sẽ có trọng số là $u_r$
-- $j$ là đơn vị trong tập $S - \{k\}$
+- $j$ là đơn vị trong tập $S$
 
 
 Vì phương trình này là phi tuyến tính và có vô số nghiệm tối ưu. Trong thực tế, cần phải chuyển đổi đó thành Linear Programing
