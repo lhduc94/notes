@@ -1,4 +1,4 @@
-# Model TYpe
+# Model Type
 
 ## Causal Inference
 ## Survival Model 

@@ -34,6 +34,14 @@ phân-tích-đồ-thị
 thư-viện-folium
 bài-toán-phân-tích-location
 thuật-toán-point-in-polygon
+model-type
+causal-inference
+survival-model
+dea-base-model
+cac-thuât-ngư-cân-năm
+mơ-đâu
+tips
+train-và-test
 các-đầu-sách-và-paper
 các-đầu-sách
 feature-engineering-and-selection-a-practical-approach-for-predictive-models
@@ -49,11 +57,3 @@ long-term-forecasting-with-tide-time-series-dense-encoder
 model-evaluation-model-selection-and-algorithm-selection-in-machine-learning
 cyclic-boosting---an-explainable-supervised-machine-learning-algorithm
 tsmixer-an-all-mlp-architecture-for-time-series-forecasting
-tips
-train-và-test
-model-type
-causal-inference
-survival-model
-dea-base-model
-cac-thuât-ngư-cân-năm
-mơ-đâu
