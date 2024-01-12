@@ -56,7 +56,7 @@ $$
 Subject to
 
 $$
-\Large {\sum^{q}_{r=1}{u_r y_{rj}}} - {\sum^{m}_{i=1}{v_i x_{ij}}} \le 0 , \forall j \\
+\Large {\sum^{q}_{r=1}{u_r y_{rj}}} - {\sum^{m}_{i=1}{v_i x_{ij}}} \le 0 , \forall j \
 
 {\sum^{m}_{i=1}{v_i x_{ik}}} = 1
 $$
