@@ -1,6 +1,21 @@
 # Model Type
 
 ## Causal Inference
+
+Ba cấp độ
+
+- Association
+- Intervention
+- Counterfactuals
+
+Topics:
+
+- Adjustment using Back-door and Front-door critiera
+- Selection bias
+- Instrumental variable
+- Potential outcomes and couterfactual
+- Causal discovery
+- Causal Reinforcement Learning
 ## Survival Model 
 
 
