@@ -36,6 +36,7 @@ bài-toán-phân-tích-location
 thuật-toán-point-in-polygon
 cac-loai-model
 causal-inference
+survival-model
 dea-base-model
 cac-thuât-ngư-cân-năm
 mơ-đâu
