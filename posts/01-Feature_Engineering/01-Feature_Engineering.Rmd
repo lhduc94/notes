@@ -1,5 +1,5 @@
 # Feature Engineering 
-## Giới thiệu
+## Giới thiệu {-}
 Feature Engineering là quá trình chuyển đổi tập dữ liệu thô ban đầu thành tập dữ liệu có các đặc trưng (features) biểu diễn dữ liệu ban đầu tốt hơn
 Feature Engineering giúp cải thiện hiệu suất của mô hình cũng như cải thiện độ chính xác của mô hình
 
@@ -25,8 +25,9 @@ Các loại Feature Engineering:
 
 - **Feature Learning**: Bằng các thuật toán hiện đại, sử dụng các phương pháp pretrained model để tạo tập feature mới từ tập feature đã cho
 
-## Feature Engineering cơ bản
-### Loại dữ liệu
+## Feature Engineering cơ bản {-}
+
+### Loại dữ liệu {-}
 
 #### Dữ liệu có cấu trúc {-}
 Là loại dữ liệu đã được tổ chức thành một cấu trúc và có data model. Dữ liệu thường được biểu diễn dưới dạng bảng với các cột và dòng trong đó mỗi dòng thể hiện một quan sát của dữ liệu và mỗi cột tương ứng với các thuộc tính, đặc trưng của dữ liệu.

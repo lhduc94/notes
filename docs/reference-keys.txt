@@ -1,7 +1,4 @@
 feature-engineering
-giới-thiệu
-feature-engineering-cơ-bản
-loại-dữ-liệu
 các-tài-liệu-tham-khảo
 một-số-thứ-xàm-xí-thu-nhặt-được
 dự-đoán-xấp-xỉ---approximate-predictions-giúp-feature-selection-nhanh-hơn
