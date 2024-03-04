@@ -1,0 +1,15 @@
+# Data Storytelling cho dự án Data Science
+
+![](../images/04/04x01.png)
+
+
+
+
+## Sự khác biệt giữa Data Visualization và Data Storytelling
+
+| Ngữ cảnh DataViz        | Ngữ cảnh Data Storytelling      
+|---------------|-------------|
+| I picked 8 apples and made 2 pies to sell.|I picked 8 apples from my grandfather's garden, who grew them naturally. The apples I harvested were transported by my grandfather and I in his hybrid car. We took them to a world-class kitchen where I invited the best cook in the country to make 2 apple pies from scratch, which were reserved for purchase by our town's mayor to give to his mother on Mother's Day. Want to know what he thought of them?|
+## Tại sao lại cần Data Storytelling? Data Visualization vẫn chưa đủ?
+## Điểm mạnh của Data Storytelling so với Data Visualization
+Khi chúng ta kể chuyện, chúng ta đưa cảm xúc vào dữ liệu và liên kết nó lại với nhau.
