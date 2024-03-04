@@ -28,14 +28,14 @@ Các loại Feature Engineering:
 ## Feature Engineering cơ bản
 ### Loại dữ liệu
 
-#### Dữ liệu có cấu trúc
+#### Dữ liệu có cấu trúc {-}
 Là loại dữ liệu đã được tổ chức thành một cấu trúc và có data model. Dữ liệu thường được biểu diễn dưới dạng bảng với các cột và dòng trong đó mỗi dòng thể hiện một quan sát của dữ liệu và mỗi cột tương ứng với các thuộc tính, đặc trưng của dữ liệu.
 
 Ví dụ về các dữ liệu có cấu trúc:
 - Các bảng trong Cơ sở dữ liệu quan hệ là các dữ liệu có cấu trúc
 - Các dữ liệu được lưu dưới dạng file CSV, Excel
 
-#### Dữ liệu phi cấu trúc
+#### Dữ liệu phi cấu trúc {-}
 #### ABC
 Thông thường, một tập dữ liệu có cả phần có cấu trúc và phi cấu  trúc. Ví dụ: Nếu chúng ta đang xử lý tập dữ liệu về các cuộc gọi điện thoại. Tập hợp con của dữ liệu này bao gồm ngà thực hiện của gọi, tên người thực cuộc gọi, địa điệm thực hiện cuộc gọi, người nhận cuộc gọi là dữ liệu có cấu trúc. Tập ghi âm thô của cuộc gọi sẽ là dữ liệu phi cấu trúc
 

@@ -2,8 +2,6 @@ feature-engineering
 giới-thiệu
 feature-engineering-cơ-bản
 loại-dữ-liệu
-dữ-liệu-có-cấu-trúc
-dữ-liệu-phi-cấu-trúc
 abc
 các-tài-liệu-tham-khảo
 một-số-thứ-xàm-xí-thu-nhặt-được
