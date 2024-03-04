@@ -1,9 +1,10 @@
 bookdown::gitbook:
   css: [css/style.css, css/toc.css, css/highlight.css]
+  toc_depth: 2
+
   config:
     toc:
-      toc_depth: 2
-      collapse: section
+      collapse: subsection
       scroll_highlight: yes
       before: |
         <li><a href="./">Notes</a></li>
