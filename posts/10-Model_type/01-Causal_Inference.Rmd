@@ -1,0 +1,28 @@
+## Causal Inference
+
+Ba cấp độ
+
+- Association
+- Intervention
+- Counterfactuals
+
+Bốn keysteps của causal inference
+
+- Modeling: Create a causal graph with important features
+
+- Identification: Establish an approach to estimate the effect and identify with features to control for
+
+- Estimation: Estimate the effect using statistical techniques
+
+- Refutation: Validate the assumption and estimates
+
+https://medium.com/@ryutayoshimatsu/causal-machine-learning-a3dc79205674
+
+Topics:
+
+- Adjustment using Back-door and Front-door critiera
+- Selection bias
+- Instrumental variable
+- Potential outcomes and couterfactual
+- Causal discovery
+- Causal Reinforcement Learning

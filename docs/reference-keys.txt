@@ -34,7 +34,6 @@ phân-tích-đồ-thị
 thư-viện-folium
 bài-toán-phân-tích-location
 thuật-toán-point-in-polygon
-model-type
 causal-inference
 dea-base-model
 cac-thuât-ngư-cân-năm

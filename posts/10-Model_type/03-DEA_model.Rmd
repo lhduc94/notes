@@ -1,24 +1,3 @@
-# Model Type
-
-## Causal Inference
-
-Ba cấp độ
-
-- Association
-- Intervention
-- Counterfactuals
-
-Topics:
-
-- Adjustment using Back-door and Front-door critiera
-- Selection bias
-- Instrumental variable
-- Potential outcomes and couterfactual
-- Causal discovery
-- Causal Reinforcement Learning
-## Survival Model 
-
-
 ## DEA Base Model
 
 https://medium.com/analytics-vidhya/introduction-to-data-envelopment-analysis-in-r-773745549d6a
