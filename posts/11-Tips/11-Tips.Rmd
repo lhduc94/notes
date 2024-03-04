@@ -1,4 +1,4 @@
 # TIPS
 Một số cạm bẫy
 
-## Train và Test
+## Train và Test {-}

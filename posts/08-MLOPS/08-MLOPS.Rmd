@@ -1,8 +1,8 @@
 # MLOPS
 
-## MLOPS là gì
+## MLOPS là gì {-}
 
-## Các frameworks triển khai MLOPS
+## Các frameworks triển khai MLOPS {-}
 
-## Giới thiệu MLlfow
-## Giới thiệu Metaflow
+## Giới thiệu MLlfow {-}
+## Giới thiệu Metaflow {-}

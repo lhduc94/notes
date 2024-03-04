@@ -1,7 +1,8 @@
 # Phân tích đồ thị
 
-## Đồ thị là gì
-## Thư viện folium
+## Đồ thị là gì {-}
+
+## Thư viện folium {-}
 ```python
 import folium
 
@@ -41,8 +42,8 @@ folium.PolyLine([marker1_coords, marker4_coords], color="green", popup=f"Khoản
 # vietnam_map
 vietnam_map.save("../outputs/map.html")
 ```
-## Bài toán phân tích location
-### Thuật toán Point-in-Polygon
+## Bài toán phân tích location {-}
+### Thuật toán Point-in-Polygon {-}
 Thuật toán Point-in-Polygon cho phép đếm số lượng các point nằm trong một đa giác, từ đó so sánh mật độ
-### Phân tích tiệm cận
+### Phân tích tiệm cận {-}
 Proximi analysis sử dụng thuật toán ball-tree

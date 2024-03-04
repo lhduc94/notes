@@ -2,45 +2,45 @@
 
 ## Các đầu sách
 
-### Feature Engineering and Selection: A Practical Approach for Predictive Models
+### Feature Engineering and Selection: A Practical Approach for Predictive Models {-}
 [link](http://www.feat.engineering/)
 
-### Flexible Imputation of Missing Data
+### Flexible Imputation of Missing Data {-}
 [link](https://stefvanbuuren.name/fimd)
 
-### Feature Engineering and Selection: A Practical Approach for Predictive Models
+### Feature Engineering and Selection: A Practical Approach for Predictive Models {-}
 [link](http://www.feat.engineering/)
 
-### Causal Inference: What If
+### Causal Inference: What If {-}
 [link](https://www.hsph.harvard.edu/miguel-hernan/wp-content/uploads/sites/1268/2023/10/hernanrobins_WhatIf_30sep23.pdf)
 
-### Dataset Shift in Machine Learning
+### Dataset Shift in Machine Learning {-}
 [link](https://direct.mit.edu/books/edited-volume/3841/Dataset-Shift-in-Machine-Learning)
 
-### Interpretable Machine Learning
+### Interpretable Machine Learning {-}
 [link](https://christophm.github.io/interpretable-ml-book/)
 
 
-### Causal Inference and Discovery in Python – Machine Learning and Pearlian Perspective
+### Causal Inference and Discovery in Python – Machine Learning and Pearlian Perspective {-}
 [link](https://library.lol/main/0AAC1ECA747484D63A16CF6BD8A6DB20)
 
 ## Các link bài báo
 
-### Time-Aware Transformer-based Network for Clinical Notes
+### Time-Aware Transformer-based Network for Clinical Notes {-}
  [[paper](https://proceedings.mlr.press/v126/zhang20c/zhang20c.pdf)] - [[code](https://github.com/zdy93/FTL-Trans)]
 
 
-### Long-term Forecasting with TiDE: Time-series Dense Encoder
+### Long-term Forecasting with TiDE: Time-series Dense Encoder {-}
 [[paper](https://arxiv.org/pdf/2304.08424.pdf)] - [[code](https://github.com/google-research/google-research/tree/master/tide)]
 
 
-### Model Evaluation, Model Selection, and Algorithm Selection in Machine Learning
+### Model Evaluation, Model Selection, and Algorithm Selection in Machine Learning {-}
 [[paper](https://arxiv.org/pdf/1811.12808.pdf)]
 
 
-### Cyclic Boosting - an explainable supervised machine learning algorithm
+### Cyclic Boosting - an explainable supervised machine learning algorithm {-}
 [[paper](https://arxiv.org/pdf/2002.03425.pdf)] - [[code](https://github.com/microsoft/CBM)] - [[code](https://cyclic-boosting.readthedocs.io/en/latest/)]
 
 
-### TSMixer: An All-MLP Architecture for Time Series Forecasting
+### TSMixer: An All-MLP Architecture for Time Series Forecasting {-}
 [[paper](https://arxiv.org/pdf/2303.06053.pdf)] - [[code](https://github.com/google-research/google-research/tree/master/tsmixer/tsmixer_basic)] - [[example](https://towardsdatascience.com/tsmixer-the-latest-forecasting-model-by-google-2fd1e29a8ccb)]

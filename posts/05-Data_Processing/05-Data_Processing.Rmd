@@ -1,7 +1,7 @@
 # Các vấn đề liên quan đến dữ liệu
-## Xử lý dữ liệu mất cân bằng
+## Xử lý dữ liệu mất cân bằng {-}
 
-### Cách 1: Sử dụng Class weights
+### Cách 1: Sử dụng Class weights {-}
 
 ```python
 LGBMClassifier(class_weight='balanced')
@@ -11,7 +11,7 @@ LogisticRegression(class_weight='balanced')
 LinearDiscriminantAnalysis(priors=[0.5, 0.5])
 ```
 
-### Cách 2: Sử dụng phương pháp Downsample Lớp Negative
+### Cách 2: Sử dụng phương pháp Downsample Lớp Negative {-}
 
 Cách thứ 2 để cân bằng các lớp là sử dụng toàn bộ dữ liệu của tập `positive` và chỉ sử dụng một phần của dữ liệu `negative`. Cách này được gọi là `Downsampling`. Vì chúng ta không sử dụng toàn bộ dữ liệu của lớp `negative` trong việc huấn luyện model, do đó chúng ta sẽ huấn luyện nhiều model với mỗi lần downsample khác nhau.
 
@@ -27,7 +27,7 @@ Hoặc có thể làm như sau cho cross validation
 ![image](../images/05/05x01.png)
 
 
-### Cách 3: Xử lý kết quả dự đoán
+### Cách 3: Xử lý kết quả dự đoán {-}
 Nếu bạn không muốn thay đổi trọng số cho lớp `positive` trong lúc huấn luyện, bạn có thể xử lý kết quả dự đoán
 
 ```python
@@ -37,7 +37,7 @@ preds = odds / (1+odds)
 ```
 trong đó preds là xác suất dự đoán giá trị `postitive=1`
 
-### Cách 4: Sử dụng hàm loss cân bằng
+### Cách 4: Sử dụng hàm loss cân bằng {-}
 ví dụ
 
 $$\begin{align}
