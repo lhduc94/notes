@@ -1,7 +1,4 @@
 feature-engineering
-các-tài-liệu-tham-khảo
-một-số-thứ-xàm-xí-thu-nhặt-được
-dự-đoán-xấp-xỉ---approximate-predictions-giúp-feature-selection-nhanh-hơn
 time-series-analysis
 anormaly-detection
 data-storytelling-cho-dự-án-data-science

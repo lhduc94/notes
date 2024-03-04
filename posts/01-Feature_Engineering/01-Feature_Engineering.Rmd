@@ -53,12 +53,12 @@ Thông thường, một tập dữ liệu có cả phần có cấu trúc và ph
 
 
 
-## Các tài liệu tham khảo
+## Các tài liệu tham khảo {-}
 [Feature Engineering and Selection: A Practical Approach for Predictive Models](http://www.feat.engineering/)
 
 
-## Một số thứ xàm xí thu nhặt được
-### "Dự đoán xấp xỉ" - Approximate Predictions giúp Feature Selection nhanh hơn
+## Một số thứ xàm xí thu nhặt được {-}
+### "Dự đoán xấp xỉ" - Approximate Predictions giúp Feature Selection nhanh hơn {-}
 [link](https://towardsdatascience.com/approximate-predictions-make-feature-selection-radically-faster-0f9664877687)
 
 Nhắc lại về SHAP Value, SHAP value thể hiện gía trị đóng góp của mỗi feature cho từng quan sát
