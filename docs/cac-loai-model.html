@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chương 3 Anormaly Detection | Sổ ghi chép</title>
+  <title>Chương 10 Các loại model | Sổ ghi chép</title>
   <meta name="description" content="Notes" />
   <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chương 3 Anormaly Detection | Sổ ghi chép" />
+  <meta property="og:title" content="Chương 10 Các loại model | Sổ ghi chép" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Notes" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chương 3 Anormaly Detection | Sổ ghi chép" />
+  <meta name="twitter:title" content="Chương 10 Các loại model | Sổ ghi chép" />
   
   <meta name="twitter:description" content="Notes" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="time-series-analysis.html"/>
-<link rel="next" href="data-storytelling-cho-dự-án-data-science.html"/>
+<link rel="prev" href="phân-tích-đồ-thị.html"/>
+<link rel="next" href="tips.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -252,17 +252,119 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="anormaly-detection" class="section level1 hasAnchor" number="3">
-<h1><span class="header-section-number">Chương 3</span> Anormaly Detection<a href="anormaly-detection.html#anormaly-detection" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="cac-loai-model" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">Chương 10</span> Các loại model<a href="cac-loai-model.html#cac-loai-model" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 
+<div id="causal-inference" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> Causal Inference<a href="cac-loai-model.html#causal-inference" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Ba cấp độ</p>
+<ul>
+<li>Association</li>
+<li>Intervention</li>
+<li>Counterfactuals</li>
+</ul>
+<p>Bốn keysteps của causal inference</p>
+<ul>
+<li><p>Modeling: Create a causal graph with important features</p></li>
+<li><p>Identification: Establish an approach to estimate the effect and identify with features to control for</p></li>
+<li><p>Estimation: Estimate the effect using statistical techniques</p></li>
+<li><p>Refutation: Validate the assumption and estimates</p></li>
+</ul>
+<p><a href="https://medium.com/@ryutayoshimatsu/causal-machine-learning-a3dc79205674" class="uri">https://medium.com/@ryutayoshimatsu/causal-machine-learning-a3dc79205674</a></p>
+<p>Topics:</p>
+<ul>
+<li>Adjustment using Back-door and Front-door critiera</li>
+<li>Selection bias</li>
+<li>Instrumental variable</li>
+<li>Potential outcomes and couterfactual</li>
+<li>Causal discovery</li>
+<li>Causal Reinforcement Learning</li>
+</ul>
+
+
+</div>
+<div id="dea-base-model" class="section level2 hasAnchor" number="10.2">
+<h2><span class="header-section-number">10.2</span> DEA Base Model<a href="cac-loai-model.html#dea-base-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="https://medium.com/analytics-vidhya/introduction-to-data-envelopment-analysis-in-r-773745549d6a" class="uri">https://medium.com/analytics-vidhya/introduction-to-data-envelopment-analysis-in-r-773745549d6a</a></p>
+<div id="cac-thuât-ngư-cân-năm" class="section level3 hasAnchor" number="10.2.1">
+<h3><span class="header-section-number">10.2.1</span> Các thuật ngữ cần nắm<a href="cac-loai-model.html#cac-thuât-ngư-cân-năm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Input-Oriented Model
+Output-Oriented Model
+DEA Frontier
+How to evaluate the efficiency?</p>
+</div>
+<div id="mơ-đâu" class="section level3 hasAnchor" number="10.2.2">
+<h3><span class="header-section-number">10.2.2</span> Mở đầu<a href="cac-loai-model.html#mơ-đâu" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Năm 1978, Charnes, Cooper and Rhodes đã đề xuất mô hình DEA, CCR model đầu tiên. Họ đã mở rộng mô hình từ một đầu vào, một đầu ra thành nhiều đầu vào và nhiều đầu ra. Mô hình CCR bây giờ đã trở thành một mô hình quen thuộc để đánh giá hiệu suất.
+Công thức của mô hình như sau</p>
+<p>Maximize</p>
+<p><span class="math display">\[
+\Large DMU(k)= max \frac{\sum_{r=1}^{q}{u_r y_{rk}}}{\sum^{m}_{i=1}{v_i x_{ik}}}
+\]</span></p>
+<p>Subject to</p>
+<p><span class="math display">\[
+\Large \frac{\sum^{q}_{r=1}{u_r y_{rj}}}{\sum^{m}_{i=1}{v_i x_{ij}}} \le 1 , \forall j
+\]</span></p>
+<p><span class="math display">\[
+v&gt;0;u \ge 0;i=1,2,⋯,m;r=1,2,⋯,q
+\]</span>
+Với mỗi quyết định cho một đơn vị <span class="math inline">\(k\)</span> trong tập đơn vị <span class="math inline">\(S\)</span> sẽ có</p>
+<ul>
+<li><span class="math inline">\(m\)</span> input được định nghĩa là <span class="math inline">\(x_i(i=1, 2, 3, ..., m)\)</span></li>
+<li>với mỗi <span class="math inline">\(x_i\)</span> sẽ có trọng số là <span class="math inline">\(v_i\)</span></li>
+<li><span class="math inline">\(q\)</span> output được định nghĩa là <span class="math inline">\(y_r(i=1, 2, 3, ..., q)\)</span></li>
+<li>với mỗi <span class="math inline">\(y_r\)</span> sẽ có trọng số là <span class="math inline">\(u_r\)</span></li>
+<li><span class="math inline">\(j\)</span> là đơn vị trong tập <span class="math inline">\(S\)</span></li>
+</ul>
+<p>Vì phương trình này là phi tuyến tính và có vô số nghiệm tối ưu. Trong thực tế, cần phải chuyển đổi đó thành Linear Programing</p>
+<p><strong>Primary Form</strong></p>
+<p>Objective</p>
+<p><span class="math display">\[
+\Large DMU(k)= max {\sum_{r=1}^{q}{u_r y_{rk}}}
+\]</span></p>
+<p>Subject to</p>
+<p><span class="math display">\[
+\Large {\sum^{q}_{r=1}{u_r y_{rj}}} - {\sum^{m}_{i=1}{v_i x_{ij}}} \le 0 , \forall j
+\]</span></p>
+<p><span class="math display">\[
+\Large {\sum^{m}_{i=1}{v_i x_{ik}}} = 1
+\]</span></p>
+<p><span class="math display">\[
+v&gt;0;𝑢 \ge 0; i=1,2,⋯,m; r=1,2,⋯,q
+\]</span></p>
+<p><strong>Dual Model</strong></p>
+<p>Objective
+<span class="math display">\[
+\Large min \  \theta
+\]</span></p>
+<p>Subject to
+<span class="math display">\[
+\Large \sum_{j=1}^{n}{\lambda_j x_{ij}} \le \theta x_{ik} \\
+\Large \sum_{j=1}^{n}{\lambda_j y_{rj} \ge y_{rk}} \\
+\Large 0 &lt; \theta \le 1; \lambda \ge 0; i =1,2,3,...,m; r=1,2,...,q; j=1,2,...,n; k=1,2,...s
+\]</span></p>
+<p>Mô hình CCR giả định lợi nhuận không đổi theo quy mô, tức là đầu vào của đơn vị quyết định tăng lên t lần kích thước ban đầu của nó và đầu ra của nó cũng gấp t lần kích thước ban đầu. Tuy nhiên, giả định rằng tất cả các đơn vị quyết định đều ở quy mô sản xuất tối ưu không phù hợp với tình hình thực tế của hầu hết các đơn vị quyết định. Trên cơ sở đó, Banker, Charnes và Cooper [39] lần đầu tiên đề xuất mô hình BCC (được đặt theo tên viết tắt của ba tác giả) để xác định xem đơn vị quyết định có đạt được quy mô sản xuất hiệu quả hay không, đo lường cả hiệu quả quy mô và hiệu quả kỹ thuật. BCC đề xuất thêm một constraint <span class="math inline">\(\sum^{n}_{j}\lambda_{j}=(\lambda &gt;=0)\)</span></p>
+<p><span class="math display">\[
+\Large min \  \theta
+\]</span></p>
+<p>Subject to
+<span class="math display">\[
+\Large \sum_{j=1}^{n}{\lambda_j x_{ij}} \le \theta x_{ik} \\
+\Large \sum_{j=1}^{n}{\lambda_j y_{rj} \ge y_{rk}} \\
+\sum^{n}_{j}\lambda_j=1 \\
+\Large 0 &lt; \theta \le 1; \lambda \ge 0; i =1,2,3,...,m; r=1,2,...,q; j=1,2,...,n; k=1,2,...s
+\]</span></p>
+
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="time-series-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="data-storytelling-cho-dự-án-data-science.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="phân-tích-đồ-thị.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tips.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
