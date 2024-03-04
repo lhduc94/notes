@@ -35,8 +35,13 @@ Ví dụ về các dữ liệu có cấu trúc:
 - Các bảng trong Cơ sở dữ liệu quan hệ là các dữ liệu có cấu trúc
 - Các dữ liệu được lưu dưới dạng file CSV, Excel
 
+
+
 #### Dữ liệu phi cấu trúc {-}
-#### ABC
+
+#### Dữ liệu bán cấu trúc {-}
+
+#### ABC {-}
 Thông thường, một tập dữ liệu có cả phần có cấu trúc và phi cấu  trúc. Ví dụ: Nếu chúng ta đang xử lý tập dữ liệu về các cuộc gọi điện thoại. Tập hợp con của dữ liệu này bao gồm ngà thực hiện của gọi, tên người thực cuộc gọi, địa điệm thực hiện cuộc gọi, người nhận cuộc gọi là dữ liệu có cấu trúc. Tập ghi âm thô của cuộc gọi sẽ là dữ liệu phi cấu trúc
 
 | Ví dụ |  Phần cấu trúc | Phần phi cấu trúc  |
