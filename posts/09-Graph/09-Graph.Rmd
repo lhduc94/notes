@@ -5,30 +5,23 @@
 ## Thư viện folium {-}
 ```python
 import folium
-
-vietnam_map = folium.Map(location=[14.0583, 108.2772], zoom_start=6)
-for _ , row in locations.iterrows():
-    folium.CircleMarker(
-        location=[row["LAT_"], row["LONG_"]],
-        radius=10,
-        color=row['Color'],
-        fill=True,
+vietnam_map = folium.Map(location=[14.0583, 108.2772], zoom_start=8)
+for _ , row in shop_cover.iterrows():
+    folium.Circle(
+        location=[row["LATITUDE"], row["LONGTITUDE"]],
+        radius=50,
+        # color='blue',
+        # fill=True,
         fill_opacity=0.6
     ).add_to(vietnam_map)
     folium.map.Marker(
-        [row["LAT_"], row["LONG_"]],
-        icon=folium.DivIcon(
-            icon_size=(60, 20),
-            html=f"<div  style='font-size: 50px; color:red'>{row['DIEM_MAT_BANG']}</div>",
-        ),
-        popup=f"""<div style='width: 200px;'>SHOP_WID: {int(row["SHOP_WID"])}
-                    <br>Số lượng hợp đồng giải ngân: {int(row["SLHD_GN"])}
-                    <br>Ngày thống kê: {row['MONTH_']}
-                    <br>Close_date:{row['CLOSE_DT']}
-                  </div>
+        [row["LATITUDE"], row["LONGTITUDE"]],
+        
+        popup=f"""a
                   """,
 
     ).add_to(vietnam_map)
+vietnam_map.save("../outputs/map.html")
 marker1_coords = (21.02684, 105.833870)
 marker2_coords = (21.034494, 105.831664)
 marker3_coords = (21.018974, 105.838349)
